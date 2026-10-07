@@ -1,5 +1,4 @@
 <?php
-// Shared bootstrap: session, SQLite database, helpers.
 declare(strict_types=1);
 
 session_start();
@@ -48,7 +47,6 @@ function csrf_valid(): bool
         && hash_equals($_SESSION['csrf'], (string) $_POST['csrf']);
 }
 
-/** Normalise an email (lowercase) or contact number (digits and leading +). */
 function normalize_identifier(string $raw): ?string
 {
     $raw = trim($raw);
@@ -62,7 +60,6 @@ function normalize_identifier(string $raw): ?string
     return null;
 }
 
-/** Password input with the show/hide toggle used on both forms. */
 function password_field(string $id, string $placeholder, string $autocomplete): void
 {
     ?>
