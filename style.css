@@ -1,0 +1,211 @@
+:root {
+    --page:     #2B4661;   /* page background */
+    --card:     #BDDDFC;   /* card body */
+    --accent:   #537FB1;   /* borders, placeholders, links */
+    --muted:    #6A89A7;   /* secondary button */
+    --navy:     #072F5F;   /* header + primary button (darkened from the mockup) */
+    --ink:      #0B2A52;
+    --white:    #ffffff;
+    --danger:   #9B1C1C;
+    --font:     "Alike", Georgia, "Times New Roman", serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    padding: 24px 16px;
+    background: var(--page);
+    color: var(--ink);
+    font-family: var(--font);
+}
+
+/* Card */
+.card {
+    width: 100%;
+    max-width: 380px;
+    border-radius: 30px;
+    overflow: hidden;
+    background: var(--card);
+}
+
+.card-header {
+    background: var(--navy);
+    padding: 26px 20px;
+    text-align: center;
+}
+
+.card-header h1 {
+    margin: 0;
+    font-size: 1.45rem;
+    font-weight: 400;
+    color: var(--white);
+}
+
+.card-body {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    padding: 18px 28px 26px;
+}
+
+.logo {
+    align-self: center;
+    width: auto;
+    height: 52px;            /* 178 x 290 source, scaled to fit the card */
+    margin-bottom: 10px;
+    mix-blend-mode: multiply; /* hides a white JPG background on the light-blue card */
+}
+
+/* Fields */
+label {
+    margin: 10px 0 4px;
+    font-size: 0.95rem;
+}
+
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    height: 44px;
+    padding: 0 14px;
+    border: 1px solid var(--accent);
+    border-radius: 14px;
+    background: var(--white);
+    font: inherit;
+    font-size: 0.95rem;
+    color: var(--ink);
+}
+
+/* Hide the browser's built-in show-password icon (Edge/Chrome); we use our own toggle */
+input[type="password"]::-ms-reveal,
+input[type="password"]::-ms-clear { display: none; }
+input[type="password"]::-webkit-credentials-auto-fill-button { visibility: hidden; display: none; }
+
+input::placeholder { color: var(--accent); opacity: 0.8; }
+
+input:focus-visible,
+.toggle-password:focus-visible,
+.btn:focus-visible,
+.switch a:focus-visible {
+    outline: 3px solid var(--navy);
+    outline-offset: 2px;
+}
+
+.name-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+.name-row label { margin-top: 0; }
+
+.password-wrap { position: relative; }
+.password-wrap input { padding-right: 46px; }
+
+.toggle-password {
+    position: absolute;
+    top: 50%;
+    right: 8px;
+    transform: translateY(-50%);
+    display: grid;
+    place-items: center;
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    border: 0;
+    border-radius: 8px;
+    background: none;
+    color: var(--ink);
+    cursor: pointer;
+}
+
+.toggle-password svg { width: 22px; height: 22px; fill: currentColor; }
+.toggle-password .icon-visible { display: none; }
+.toggle-password[aria-pressed="true"] .icon-visible { display: block; }
+.toggle-password[aria-pressed="true"] .icon-hidden  { display: none; }
+
+/* Buttons */
+.btn {
+    display: block;
+    width: 78%;
+    margin: 0 auto;
+    padding: 12px 16px;
+    border: 0;
+    border-radius: 999px;
+    font: inherit;
+    font-size: 1.05rem;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    transition: filter 0.15s ease;
+}
+
+.btn:hover { filter: brightness(1.1); }
+
+.btn-primary {
+    margin-top: 18px;
+    background: var(--navy);
+    color: var(--white);
+}
+
+.btn-google {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px 16px;
+    background: var(--muted);
+    color: var(--white);
+    font-size: 0.95rem;
+}
+
+.btn-google svg { background: var(--white); border-radius: 2px; padding: 1px; }
+
+/* Divider */
+.divider {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    width: 70%;
+    margin: 10px auto;
+    font-size: 0.7rem;
+}
+
+.divider::before,
+.divider::after {
+    content: "";
+    flex: 1;
+    border-top: 1px dashed var(--ink);
+}
+
+/* Switch link */
+.switch {
+    margin: 22px 0 0;
+    text-align: center;
+    font-size: 0.8rem;
+}
+
+.switch a { color: var(--ink); }
+
+/* Messages */
+.message {
+    margin: 0 0 6px;
+    padding: 8px 12px;
+    border-radius: 10px;
+    font-size: 0.85rem;
+    text-align: center;
+}
+
+.message[hidden] { display: none; }
+.message-error { background: #FBE3E3; color: var(--danger); }
+.message-ok    { background: var(--white); color: var(--navy); }
+
+.invalid { border-color: var(--danger) !important; }
+
+@media (max-width: 400px) {
+    .card-body { padding-inline: 20px; }
+    .btn { width: 90%; }
+}
