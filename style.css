@@ -1,9 +1,9 @@
 :root {
-    --page:     #2B4661;   /* page background */
-    --card:     #BDDDFC;   /* card body */
-    --accent:   #537FB1;   /* borders, placeholders, links */
-    --muted:    #6A89A7;   /* secondary button */
-    --navy:     #072F5F;   /* header + primary button (darkened from the mockup) */
+    --page:     #2B4661;   
+    --card:     #BDDDFC; 
+    --accent:   #537FB1;  
+    --muted:    #6A89A7;  
+    --navy:     #072F5F; 
     --ink:      #0B2A52;
     --white:    #ffffff;
     --danger:   #9B1C1C;
@@ -23,7 +23,6 @@ body {
     font-family: var(--font);
 }
 
-/* Card */
 .card {
     width: 100%;
     max-width: 380px;
@@ -55,12 +54,11 @@ body {
 .logo {
     align-self: center;
     width: auto;
-    height: 52px;            /* 178 x 290 source, scaled to fit the card */
+    height: 52px;        
     margin-bottom: 10px;
-    mix-blend-mode: multiply; /* hides a white JPG background on the light-blue card */
+    mix-blend-mode: multiply;
 }
 
-/* Fields */
 label {
     margin: 10px 0 4px;
     font-size: 0.95rem;
@@ -79,7 +77,6 @@ input[type="password"] {
     color: var(--ink);
 }
 
-/* Hide the browser's built-in show-password icon (Edge/Chrome); we use our own toggle */
 input[type="password"]::-ms-reveal,
 input[type="password"]::-ms-clear { display: none; }
 input[type="password"]::-webkit-credentials-auto-fill-button { visibility: hidden; display: none; }
@@ -127,7 +124,6 @@ input:focus-visible,
 .toggle-password[aria-pressed="true"] .icon-visible { display: block; }
 .toggle-password[aria-pressed="true"] .icon-hidden  { display: none; }
 
-/* Buttons */
 .btn {
     display: block;
     width: 78%;
@@ -164,7 +160,6 @@ input:focus-visible,
 
 .btn-google svg { background: var(--white); border-radius: 2px; padding: 1px; }
 
-/* Divider */
 .divider {
     display: flex;
     align-items: center;
@@ -181,7 +176,6 @@ input:focus-visible,
     border-top: 1px dashed var(--ink);
 }
 
-/* Switch link */
 .switch {
     margin: 22px 0 0;
     text-align: center;
@@ -190,7 +184,6 @@ input:focus-visible,
 
 .switch a { color: var(--ink); }
 
-/* Messages */
 .message {
     margin: 0 0 6px;
     padding: 8px 12px;
