@@ -1,7 +1,6 @@
 (function () {
     'use strict';
 
-    // Show / hide password
     document.querySelectorAll('.toggle-password').forEach(function (btn) {
         btn.addEventListener('click', function () {
             var input = document.getElementById(btn.dataset.target);
@@ -54,7 +53,6 @@
         }
     });
 
-    // Google sign-in is not connected yet. Wire this to your OAuth endpoint.
     var google = document.getElementById('google-btn');
     if (google) {
         google.addEventListener('click', function () {
